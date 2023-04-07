@@ -1,0 +1,51 @@
+# Variables
+export wl_common=/usr/share/seclists/Discovery/Web-Content/common.txt
+export wl_big=/usr/share/seclists/Discovery/Web-Content/big.txt
+export wl_dir=/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+export wl_api=/usr/share/seclists/Discovery/Web-Content/api
+export pandora=~/PandorasBox/
+
+
+# FAST ACCESS
+    alias .ipy="cd ~/.ipython/; ll"
+    alias sys="cd /etc/systemd/system/; clear; ls -l"
+    alias .ssh="cd $HOME/.ssh; ls"
+    alias rules="cd /usr/share/hashcat/rules; ls"
+    alias shared="cd ~/Shared; ls"
+    alias pandora="cd ~/PandorasBox; ls"
+    alias seclists="cd /usr/share/seclists; ls"
+
+# Functions
+    alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
+    alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
+    alias cal='echo -e "import calendar\nprint(calendar.TextCalendar().formatyear(2023))" |python'
+    alias webup="python3 -m http.server 2337"
+    alias smbup="sudo impacket-smbserver -smb2support share . -username foo -password bar"
+    alias base64="base64 -w 0"
+    alias xfreerdp="xfreerdp /w:1920 /h:1080"
+    alias killxbinds="ps aux |grep xbindkeys |tr -s ' ' | cut -d ' ' -f 2 |xargs kill"
+    alias list_users="getent passwd |grep /bin/bash |cut -d ':' -f 1"
+
+# Shortcuts
+    alias pgrep="ps aux |grep --color "
+    alias xclip="xclip -selection c"
+    alias i="ping google.de"
+    alias hg="history |grep"
+    alias sc="systemctl"
+    alias ll="ls -la  --color=auto --sort=extension"
+    alias ls="ls --color=auto --sort=extension"
+    alias src_al="source ~/.aliase"
+    alias src_rc="source ~/.zshrc"
+    alias v_al="vim ~/.aliase"
+    alias v_rc="vim ~/.zshrc"
+    alias off="sudo shutdown -h now"
+    alias rm="rm -rf"
+    alias ip="ip -c"
+
+# Tools
+    alias sp="searchsploit"
+    alias vim="nvim"
+    alias gcc="gcc -g -Wall -Wextra -pedantic"
+    alias grep="grep --color"
+    alias gcc90="gcc -g -Wall -Wextra -pedantic -ansi"
+    alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
