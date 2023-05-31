@@ -269,7 +269,7 @@ export PATH="$PATH:/home/kali/.local/bin"
 # Add rust programs (navi) managed by cargo to path
 export PATH="$PATH:/home/kali/.cargo/bin"
 
-source /home/kali/Tools/powerlevel10k/powerlevel10k.zsh-theme
+source /home/kali/Setup/powerlevel10k/powerlevel10k.zsh-theme
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
