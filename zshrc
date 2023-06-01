@@ -266,9 +266,15 @@ fi
 
 # Created by `pipx` on 2023-04-08 09:34:44
 export PATH="$PATH:/home/kali/.local/bin"
-# Add rust programs (navi) managed by cargo to path
-export PATH="$PATH:/home/kali/.cargo/bin"
+export ZSH="$HOME/.oh-my-zsh"
 
+plugins=(
+    git
+    docker 
+    colored-man-pages
+)
+
+source $ZSH/oh-my-zsh.sh
 source /home/kali/Setup/powerlevel10k/powerlevel10k.zsh-theme
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
