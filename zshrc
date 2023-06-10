@@ -55,13 +55,13 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
+HISTSIZE=10000
+SAVEHIST=20000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
+setopt share_history          # share command history data
 
 # force zsh to show the complete history
 alias history="history 0"
@@ -267,11 +267,14 @@ fi
 # Created by `pipx` on 2023-04-08 09:34:44
 export PATH="$PATH:/home/kali/.local/bin"
 export ZSH="$HOME/.oh-my-zsh"
+export VISUAL=nvim;
+export EDITOR=nvim;
 
 plugins=(
     git
     docker 
     colored-man-pages
+    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
