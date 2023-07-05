@@ -277,9 +277,17 @@ plugins=(
     vi-mode
 )
 
+# IT's A TRAP - convenience functions foo and bar
+trap 'alias b="cd $(cat ~/.foo)"' USR1
+trap 'alias c="cd $(cat ~/.bar)"' USR2
+
 source $ZSH/oh-my-zsh.sh
 source /home/kali/Setup/powerlevel10k/powerlevel10k.zsh-theme
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Ruby paths
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/
