@@ -282,7 +282,8 @@ trap 'alias b="cd $(cat ~/.foo)"' USR1
 trap 'alias c="cd $(cat ~/.bar)"' USR2
 
 source $ZSH/oh-my-zsh.sh
-source /home/kali/Setup/powerlevel10k/powerlevel10k.zsh-theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
