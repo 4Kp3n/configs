@@ -21,6 +21,7 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # configure key keybindings
 bindkey -e                                        # emacs key bindings
@@ -282,7 +283,6 @@ trap 'alias b="cd $(cat ~/.foo)"' USR1
 trap 'alias c="cd $(cat ~/.bar)"' USR2
 
 source $ZSH/oh-my-zsh.sh
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
