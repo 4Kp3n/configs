@@ -1,1 +1,1 @@
-alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:alpine'
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'

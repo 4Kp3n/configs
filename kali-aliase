@@ -16,6 +16,7 @@ export pandora=~/PandorasBox/
     alias seclists="cd /usr/share/seclists; ls"
 
 # Functions
+    alias sudo='sudo ' #allows to use aliase as super user
     alias a="/opt/arsenal/run"
     alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
     alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
@@ -28,6 +29,7 @@ export pandora=~/PandorasBox/
     alias xfreerdp="xfreerdp /w:1920 /h:1080"
     alias killxbinds="ps aux |grep xbindkeys |tr -s ' ' | cut -d ' ' -f 2 |xargs kill"
     alias list_users="getent passwd |grep /bin/bash |cut -d ':' -f 1"
+    alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
 
 # Shortcuts
     alias pgrep="ps aux |grep --color "
