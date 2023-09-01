@@ -17,7 +17,7 @@ export pandora=~/PandorasBox/
 
 # Functions
     alias sudo='sudo ' #allows to use aliase as super user
-    alias a="/opt/arsenal/run"
+    alias a="~/Tools/arsenal/run"
     alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
     alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
     alias cal='echo -e "import calendar\nprint(calendar.TextCalendar().formatyear(2023))" |python'
@@ -54,3 +54,5 @@ export pandora=~/PandorasBox/
     alias grep="grep --color"
     alias gcc90="gcc -g -Wall -Wextra -pedantic -ansi"
     alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
+    alias coercer='Coercer'
+    alias certipy='certipy-ad'
