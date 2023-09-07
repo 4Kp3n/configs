@@ -17,7 +17,7 @@ export pandora=~/PandorasBox/
 
 # Functions
     alias sudo='sudo ' #allows to use aliase as super user
-    alias a="~/Tools/arsenal/run"
+    alias a="~/Repos/arsenal/run"
     alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
     alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
     alias cal='echo -e "import calendar\nprint(calendar.TextCalendar().formatyear(2023))" |python'
