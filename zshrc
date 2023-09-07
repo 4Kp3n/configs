@@ -265,7 +265,8 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:$HOME/PandorasBox/Tools
+export ZSH=$HOME/.oh-my-zsh
 export VISUAL=nvim;
 export EDITOR=nvim;
 
@@ -286,3 +287,4 @@ if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
