@@ -265,8 +265,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# Created by `pipx` on 2023-04-08 09:34:44
-export PATH="$PATH:/home/kali/.local/bin"
 export ZSH="$HOME/.oh-my-zsh"
 export VISUAL=nvim;
 export EDITOR=nvim;
@@ -288,7 +286,3 @@ if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Ruby paths
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/
