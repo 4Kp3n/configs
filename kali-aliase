@@ -56,3 +56,5 @@ export pandora=~/PandorasBox/
     alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
     alias coercer='Coercer'
     alias certipy='certipy-ad'
+    alias pwndoc_start='cd ~/Tools/pwndoc; sudo docker-compose up -d --build; cd; echo pwndoc running on port 8443'
+    alias pwndoc_stop='cd ~/Tools/pwndoc; sudo docker-compose down; cd'
