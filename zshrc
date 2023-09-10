@@ -265,7 +265,7 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-export PATH=$PATH:$HOME/PandorasBox/Tools
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/PandorasBox/Tools
 export ZSH=$HOME/.oh-my-zsh
 export VISUAL=nvim;
 export EDITOR=nvim;
