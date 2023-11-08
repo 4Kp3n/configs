@@ -1,63 +1,67 @@
+#konichi wa - Willkommen
+HOSTNAME=$(hostname)
+
 # Variables
 export wl_common=/usr/share/seclists/Discovery/Web-Content/common.txt
 export wl_big=/usr/share/seclists/Discovery/Web-Content/big.txt
 export wl_dir=/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
 export wl_api=/usr/share/seclists/Discovery/Web-Content/api
-export pandora=~/PandorasBox/
+export pandora=~/Kioku/PandorasBox/
 
 
 # FAST ACCESS
-    alias .ipy="cd ~/.ipython/; ll"
+    alias a="~/Repos/arsenal/run"
+    alias .ipy="cd $HOME/.ipython/; ll"
+    alias aur="cd ~/Public/AUR; ls"
     alias sys="cd /etc/systemd/system/; clear; ls -l"
     alias .ssh="cd $HOME/.ssh; ls"
+    alias oscp="cd ~/Kioku/OSCP; ls"
+    alias play="cd ~/Playgrounds; ls"
+    alias kioku="cd ~/Kioku; ls"
+    alias tools="cd ~/Tools; ls"
+    alias venvs="cd ~/Python/Venvs; ls"
     alias rules="cd /usr/share/hashcat/rules; ls"
-    alias shared="cd ~/Shared; ls"
-    alias pandora="cd ~/PandorasBox; ls"
+    alias shared="cd ~/Public/Shared; ls"
+    alias pandora="cd ~/Kioku/PandorasBox; ls"
+    alias business="cd ~/Kioku/src/Business; ls"
     alias seclists="cd /usr/share/seclists; ls"
 
 # Functions
-    alias sudo='sudo ' #allows to use aliase as super user
-    alias a="~/Repos/arsenal/run"
-    alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
-    alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
+    alias foo="~/Kioku/src/Scripts/Bash/foo"
+    alias bar="~/Kioku/src/Scripts/Bash/bar"
     alias cal='echo -e "import calendar\nprint(calendar.TextCalendar().formatyear(2023))" |python'
-    alias cme="poetry -C /home/kali/Repos/CrackMapExec/ run crackmapexec"
-    alias donpapi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
-    alias papi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
     alias webup="python3 -m http.server 2337"
-    alias wfuzz="wfuzz -c"
-    alias smbup="sudo impacket-smbserver -smb2support share . -username foo -password bar"
+    alias smbup="sudo smbserver.py -smb2support share . -username foo -password bar"
+    alias webdavup="source ~/Python/Venvs/web/bin/activate; sudo wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root ."
     alias base64="base64 -w 0"
     alias xfreerdp="xfreerdp /w:1920 /h:1080"
     alias killxbinds="ps aux |grep xbindkeys |tr -s ' ' | cut -d ' ' -f 2 |xargs kill"
     alias list_users="getent passwd |grep /bin/bash |cut -d ':' -f 1"
-    alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
 
 # Shortcuts
     alias pgrep="ps aux |grep --color "
     alias xclip="xclip -selection c"
     alias i="ping google.de"
-    alias hg="history |grep"
-    alias sc="systemctl"
+    alias hg="history |grep "
+    alias sc="systemctl "
     alias ll="ls -la  --color=auto --sort=extension"
     alias ls="ls --color=auto --sort=extension"
     alias src_al="source ~/.aliase"
     alias src_rc="source ~/.zshrc"
     alias v_al="vim ~/.aliase"
     alias v_rc="vim ~/.zshrc"
+    alias v_pr="vim ~/.profile"
     alias off="sudo shutdown -h now"
     alias rm="rm -rf"
     alias ip="ip -c"
 
 # Tools
     alias sp="searchsploit"
-    alias payloads="cat ~/PandorasBox/msfpayloads.txt"
     alias vim="nvim"
     alias gcc="gcc -g -Wall -Wextra -pedantic"
     alias grep="grep --color"
     alias gcc90="gcc -g -Wall -Wextra -pedantic -ansi"
+    alias pwncat="source ~/Python/Venvs/pwncat-cs/bin/activate; pwncat-cs"
     alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
-    alias coercer='Coercer'
-    alias certipy='certipy-ad'
-    alias pwndoc_start='cd ~/Tools/pwndoc; sudo docker-compose up -d --build; cd; echo pwndoc running on port 8443'
-    alias pwndoc_stop='cd ~/Tools/pwndoc; sudo docker-compose down; cd'
+    # start impacket docker container - running natively does not work properly due to OpenSSL restrictions
+    alias impacket='docker run -it --rm "impacket:latest"'
