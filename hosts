@@ -1,0 +1,32 @@
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+127.0.0.1 	localhost
+127.0.0.1 	local
+::1 		localhost
+192.168.178.1 		fritz.box
+
+# GOAD
+192.168.56.10   sevenkingdoms.local kingslanding.sevenkingdoms.local kingslanding
+192.168.56.11   winterfell.north.sevenkingdoms.local north.sevenkingdoms.local winterfell
+192.168.56.12   essos.local meereen.essos.local meereen
+192.168.56.22   castelblack.north.sevenkingdoms.local castelblack
+192.168.56.23   braavos.essos.local braavos
+
+# HTB
+10.10.11.203		agile.htb superpass.htb
+10.10.10.13		cronos.htb admin.cronos.htb www.cronos.htb
+10.10.10.161		forest.htb
+10.10.10.162		mango.htb staging-order.mango.htb
+10.10.10.171		openadmin.htb
+10.10.10.175		sauna.htb egotistical-bank.local
+10.10.10.187		admirer.htb
+10.10.10.191		blunder.htb
+10.10.10.215		academy.htb dev-staging-01.academy.htb
+10.10.11.140		meta.htb artcorp.htb dev01.artcorp.htb
+10.10.11.152		timelapse.htb
+10.10.11.164		opensource.htb
+10.10.11.170		redpanda.htb
+10.10.11.186		metatwo.htb
+10.10.11.189		precious.htb
+10.10.11.194		soccer.htb soc-player.soccer.htb
+10.10.11.196		stocker.htb dev.stocker.htb
