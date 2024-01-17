@@ -17,13 +17,11 @@ export pandora=~/PandorasBox/
 
 # Functions
     alias sudo='sudo ' #allows to use aliase as super user
+    alias proxychains='proxychains ' #same principle
     alias a="~/Repos/arsenal/run"
     alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
     alias bar="~/knowledgebase/OSFoo/Linux/CmdNinja/bar"
     alias cal='echo -e "import calendar\nprint(calendar.TextCalendar().formatyear(2023))" |python'
-    alias cme="poetry -C /home/kali/Repos/CrackMapExec/ run crackmapexec"
-    alias donpapi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
-    alias papi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
     alias webup="python3 -m http.server 2337"
     alias wfuzz="wfuzz -c"
     alias smbup="sudo impacket-smbserver -smb2support share . -username foo -password bar"
@@ -50,6 +48,11 @@ export pandora=~/PandorasBox/
     alias ip="ip -c"
 
 # Tools
+    alias lsassy='poetry -C /home/kali/Repos/lsassy run lsassy'
+    alias cme="poetry -C /home/kali/Repos/CrackMapExec/ run crackmapexec"
+    alias donpapi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
+    alias papi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
+    alias coercer='poetry -C /home/kali/Repos/Coercer run coercer'
     alias sp="searchsploit"
     alias payloads="cat ~/PandorasBox/msfpayloads.txt"
     alias vim="nvim"
@@ -57,7 +60,6 @@ export pandora=~/PandorasBox/
     alias grep="grep --color"
     alias gcc90="gcc -g -Wall -Wextra -pedantic -ansi"
     alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
-    alias coercer='Coercer'
     alias certipy='certipy-ad'
     alias pwndoc_start='cd ~/Tools/pwndoc; sudo docker-compose up -d --build; cd; echo pwndoc running on port 8443'
     alias pwndoc_stop='cd ~/Tools/pwndoc; sudo docker-compose down; cd'
