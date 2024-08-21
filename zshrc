@@ -294,3 +294,6 @@ if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Created by `pipx` on 2024-05-09 15:07:45
+export PATH="$PATH:/home/jarvis/.local/bin"
