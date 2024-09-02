@@ -16,7 +16,7 @@ export pandora=~/PandorasBox/
     alias seclists="cd /usr/share/seclists; ls"
 
 # Functions
-    alias sudo='sudo ' #allows to use aliase as super user
+    alias sudo=$'nocorrect sudo\t' #allows to use aliase as super user
     alias proxychains='proxychains ' #same principle
     alias a="~/Repos/arsenal/run"
     alias foo="~/knowledgebase/OSFoo/Linux/CmdNinja/foo"
