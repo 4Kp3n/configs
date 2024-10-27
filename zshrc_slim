@@ -35,3 +35,13 @@ fi
 
 # load file with custom aliases if exists
 if [[ -e ~/.aliase ]]; then source ~/.aliase; fi
+
+# Automatically start tmux if not already inside a tmux session
+if [ -z "$TMUX" ]; then
+  if command -v tmux >/dev/null 2>&1; then
+    # Attempt to attach to an existing session named 'default', or create it if it doesn't exist
+    tmux attach-session -t default || tmux new-session -s default
+  else
+    echo "tmux is not installed. Please install tmux to use this feature."
+  fi
+fi
