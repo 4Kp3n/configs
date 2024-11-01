@@ -1,7 +1,7 @@
 # Static table lookup for hostnames.
 # See hosts(5) for details.
 127.0.0.1 	localhost
-127.0.0.1 	local
+127.0.1.1 	kali
 ::1 		localhost
 192.168.178.1 		fritz.box
 
