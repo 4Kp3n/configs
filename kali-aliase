@@ -48,8 +48,8 @@ export pandora=~/PandorasBox/
     alias ip="ip -c"
 
 # Tools
+    alias bloodhound-ce-python="source ~/Repos/Bloodhound.py/venv/bin/activate; "
     alias lsassy='poetry -C /home/kali/Repos/lsassy run lsassy'
-    alias cme="poetry -C /home/kali/Repos/CrackMapExec/ run crackmapexec"
     alias donpapi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
     alias papi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
     alias coercer='poetry -C /home/kali/Repos/Coercer run coercer'
