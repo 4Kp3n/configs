@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the sysctl command to fix arsenal 
+After=network.target  # Adjust dependencies as needed
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/sysctl -w dev.tty.legacy_tiocsti=1
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -27,6 +27,7 @@ export pandora=~/PandorasBox/
     alias smbup="sudo impacket-smbserver -smb2support share . -username foo -password bar"
     alias base64="base64 -w 0"
     alias xfreerdp="xfreerdp /w:1920 /h:1080"
+    alias killxbinds="ps aux |grep xbindkeys |tr -s ' ' | cut -d ' ' -f 2 |xargs kill"
     alias list_users="getent passwd |grep /bin/bash |cut -d ':' -f 1"
     alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:latest'
 
@@ -47,8 +48,6 @@ export pandora=~/PandorasBox/
     alias ip="ip -c"
 
 # Tools
-    alias bloodhound-up="sudo docker-compose -f ~/Repos/BloodHound/examples/docker-compose/docker-compose.yml up -d"
-    alias bloodhound-down="sudo docker-compose -f ~/Repos/BloodHound/examples/docker-compose/docker-compose.yml down"
     alias lsassy='poetry -C /home/kali/Repos/lsassy run lsassy'
     alias cme="poetry -C /home/kali/Repos/CrackMapExec/ run crackmapexec"
     alias donpapi="poetry -C ~/Repos/DonPAPI/ run DonPAPI"
@@ -62,6 +61,8 @@ export pandora=~/PandorasBox/
     alias gcc90="gcc -g -Wall -Wextra -pedantic -ansi"
     alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
     alias certipy='certipy-ad'
+    alias pwndoc_start='cd ~/Tools/pwndoc; sudo docker-compose up -d --build; cd; echo pwndoc running on port 8443'
+    alias pwndoc_stop='cd ~/Tools/pwndoc; sudo docker-compose down; cd'
     
 
 bloodhound-ce-python() {
