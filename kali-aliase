@@ -64,11 +64,11 @@ export pandora=~/PandorasBox/
     alias certipy='certipy-ad'
     
 
-bloodhound-ce-python() {
-    source ~/Repos/BloodHound.py/venv/bin/activate
-    ~/Repos/BloodHound.py/venv/bin/bloodhound-ce-python "$@"
-    deactivate
-}
+#bloodhound-ce-python() {
+#    source ~/Repos/BloodHound.py/venv/bin/activate
+#    ~/Repos/BloodHound.py/venv/bin/bloodhound-ce-python "$@"
+#    deactivate
+#}
 
 adidnsdump() {
     source ~/Repos/adidnsdump/venv/bin/activate
