@@ -1,0 +1,189 @@
+---
+- name: Configure Debian operating system
+  hosts: localhost
+  become: yes
+  vars:
+    config_dir: "/home/{{user}}/Repos/configs"
+    zsh_install_dir: "/usr/share/oh-my-zsh"
+    arsenal_dir: "/home/{{user}}/Repos/arsenal"
+    user: "kali"
+  tasks:
+    # Basic package installation
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Ensure essential packages are installed
+      apt:
+        name:
+          - git
+          - neovim
+          - tmux
+          - curl
+          - wget
+          - zsh
+          - python3
+          - python3-pip
+          - python3-venv
+        state: present
+
+    # Oh-My-Zsh
+    - name: Check if Oh My Zsh is already installed
+      ansible.builtin.stat:
+        path: "{{ zsh_install_dir }}"
+      register: oh_my_zsh_installed
+    
+    - name: Install Oh My Zsh
+      ansible.builtin.shell: |
+        sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      args:
+        executable: /bin/bash
+      when: not oh_my_zsh_installed.stat.exists
+      environment: 
+        ZSH: "{{ zsh_install_dir }}"
+    
+    # Zshrc
+    - name: Copy zshrc for user
+      ansible.builtin.copy:
+        src: "{{config_dir}}/zshrc"
+        dest: /home/{{user}}/.zshrc
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    
+    - name: Copy zshrc for root
+      ansible.builtin.copy:
+        src: "{{config_dir}}/zshrc"
+        dest: /root/.zshrc
+    
+    # Tmux
+    - name: Ensure .tmux directory exists
+      file:
+        path: "/home/{{ user }}/.tmux/"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        state: directory
+    
+    - name: Ensure tmux plugins directory exists
+      file:
+        path: "/home/{{ user }}/.tmux/plugins/"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        state: directory
+    
+    - name: Change tmux config
+      ansible.builtin.copy:
+        src: "{{config_dir}}/tmux.conf"
+        dest: /home/{{user}}/.tmux.conf
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    
+    # Vim
+    - name: Ensure the destination directory exists
+      file:
+        path: /home/{{user}}/.config/nvim/
+        state: directory
+        mode: '0755'
+
+    - name: Copy vim config for user
+      ansible.builtin.copy:
+        src: "{{config_dir}}/init.vim"
+        dest: /home/{{user}}/.config/nvim/init.vim
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    
+    - name: Ensure the destination directory exists
+      file:
+        path: /root/.config/nvim/
+        state: directory
+        mode: '0755'
+    
+    - name: Copy vim config for root
+      ansible.builtin.copy:
+        src: "{{config_dir}}/init.vim"
+        dest: /root/.config/nvim/init.vim
+
+    # Vundle
+    - name: Clone vundle for user
+      ansible.builtin.git:
+        repo: "https://github.com/VundleVim/Vundle.vim.git"
+        dest: "/home/{{user}}/.config/nvim/bundle/Vundle.vim"
+        depth: 1
+        force: true
+
+    - name: Clone vundle for root user
+      ansible.builtin.git:
+        repo: "https://github.com/VundleVim/Vundle.vim.git"
+        dest: "/root/.config/nvim/bundle/Vundle.vim"
+        depth: 1
+        force: true
+    
+    - name: Install vim plugins for user
+      ansible.builtin.shell: nvim +PluginInstall +qall
+      become: true
+      become_user: "{{ user }}"
+    
+    - name: Install vim plugins for root
+      ansible.builtin.shell: nvim +PluginInstall +qall
+    
+    # Aliase
+    - name: Copy aliase for user
+      ansible.builtin.copy:
+        src: "{{config_dir}}/aliase"
+        dest: /home/{{user}}/.aliase
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    
+    - name: Copy aliase for root
+      ansible.builtin.copy:
+        src: "{{config_dir}}/aliase"
+        dest: /root/.aliase
+          
+    # Arsenal
+    - name: Clone Arsenal repository
+      git:
+        repo: https://github.com/4Kp3n/arsenal.git
+        dest: "{{arsenal_dir}}"
+        version: HEAD
+      become_user: "{{ user }}"
+      
+    - name: Create Python virtual environment
+      command: python3 -m venv venv
+      args:
+        chdir: "{{ arsenal_dir }}"
+        creates: "{{ arsenal_dir }}/venv"
+      become_user: "{{ user }}"
+      
+    - name: Install Python dependencies
+      pip:
+        requirements: "{{ arsenal_dir }}/requirements.txt"
+        virtualenv: "{{ arsenal_dir }}/venv"
+        virtualenv_command: python3 -m venv
+      become_user: "{{ user }}"
+      
+    - name: Make run script executable
+      file:
+        path: "{{ arsenal_dir }}/run"
+        mode: '0755'
+      become_user: "{{ user }}"
+
+    - name: Copy fix-arsenal service file
+      ansible.builtin.copy:
+        src: "{{config_dir}}/fix-arsenal.service"
+        dest: "/etc/systemd/system/fix-arsenal.service"
+        owner: root
+        group: root
+        mode: '0644'
+    
+    - name: Enable and start fix-arsenal service
+      ansible.builtin.systemd:
+        name: fix-arsenal
+        enabled: yes
+        state: started
+        daemon_reload: yes
+    
+    # Atuin
+    - name: Install atuin shell history
+      ansible.builtin.shell: curl --proto "=https" --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+      become: true
+      become_user: "{{ user }}"
