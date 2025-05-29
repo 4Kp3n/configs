@@ -23,3 +23,4 @@
 
 # Tools
     alias vim="nvim"
+    alias a="source ~/Repos/arsenal/venv/bin/activate; ~/Repos/arsenal/run; deactivate"
